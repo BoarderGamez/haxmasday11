@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
-// Import CSS styles
 import '../../styles/global.css';
 
 // Sort posts by publication date, most recent first
@@ -12,16 +11,14 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <div class="posts-page page-shell">
-    <!-- Text above list of posts -->
     <header class="page-header">
-        <h1>My very cool blog</h1>
-        <p class="tagline">Make this unique!</p>
+        <h1>Frog's blogs</h1>
+        <a href="/seal" class="tagline">PRESS ON THIS ONE</a>
     </header>
 
     {posts.length === 0 && <p class="empty">No posts yet :(</p>}
 
-    <!-- Container with the list of blog posts -->
-    <div class="posts">
+    <div class="posts grid-view">
         {posts.map((post) => (
             <article class="post-card">
                 <a href={`/posts/${post.id}`} class="title-link">
@@ -35,3 +32,11 @@ const posts = (await getCollection('blog')).sort(
         ))}
     </div>
 </div>
+
+<style>
+    .posts.grid-view {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 18px;
+    }
+</style>

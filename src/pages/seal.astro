@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+import sealVideo from '../assets/vid/sealtoschool.mp4';
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Seal to School</title>
+    </head>
+    <body>
+        <main class="video-page">
+            <video autoplay controls>
+                <source src={sealVideo} type="video/mp4" />
+            </video>
+        </main>
+    </body>
+</html>
+
+<style>
+    .video-page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg);
+    }
+    video {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 12px;
+    }
+</style>
